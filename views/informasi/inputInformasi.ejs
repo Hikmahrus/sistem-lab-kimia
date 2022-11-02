@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Informasi</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/inputinformasiStyle.css">
+</head>
+<body>
+    
+
+
+    <!-- Input Informasi -->
+    <div class="input_informasi">
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+        </div>
+        <h1>Input Informasi</h1>
+        <span class="title_span">Gunakan form dibawah ini untuk menambah informasi kegiatan baru</span>
+        <form action="/insert/informasi" method="post">
+            <div class="txt_field">
+              <input type="text" name="nama" required>
+              <span></span>
+              <label for="name">Nama Kegiatan</label>
+            </div>
+            <div class="date_time">
+                <div class="date_field">
+                    <p id="waktu">Waktu Kegiatan</p>
+                    <input type="date" name="waktu" required>
+                    <span></span>
+                </div>
+                <div class="time_field1">
+                    <input type="time" name="waktu" required>
+                    <span></span>
+                    <p id="koma">,</p>
+                    <p id="sd">s.d</p>
+                </div>
+                <div class="time_field2">
+                    <input type="time" name="waktu" required>
+                    <span></span>
+                </div>
+            </div>
+            
+            <div class="radio_group">
+                <label for="rutinitas"class="radio_name">Rutinitas Kegiatan</label>
+                <div class="radio_field">
+                    <label>
+                        <input type="radio" name="rutinitas" value="Rutin">
+                        <span>Rutin</span>
+                    </label>
+                </div>
+                <div class="radio_field">
+                    <label>
+                        <input type="radio" name="rutinitas" value="Tidak Rutin">
+                        <span>Tidak Rutin</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="txt_field">
+                <input type="text" name="desc" required>
+                <span></span>
+                <label for="name">Deskripsi</label>
+            </div>
+
+            <div class="btn">
+                <span></span>
+                <button type="submit" class="btn_success">Save</button>
+            </div>
+          </form>
+    </div>
+<!-- Input Inventaris -->
+
+    <!--Header-->
+    <%- include('../header') %>
+    <!--Header-->
+
+</body>
+</html>

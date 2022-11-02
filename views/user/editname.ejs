@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Name</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/editnameStyle.css">
+</head>
+<body>
+    
+    <!-- Input Inventaris -->
+    <div class="input_inventaris">
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+        </div>
+        <h1>Edit Name</h1>
+        <span class="title-span">Gunakan form dibawah ini untuk mengganti nama</span>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" name="username" required>
+                <span></span>
+                <label for="username">New Name</label>
+            </div>
+            <div>
+            <button type="submit" class="btn btn-success">Save</button>
+            </div>
+          </form>
+    </div>
+<!-- Input Inventaris -->
+
+    <!--Header-->
+    <%- include('../header') %>
+    <!--Header-->
+
+
+</body>
+</html>

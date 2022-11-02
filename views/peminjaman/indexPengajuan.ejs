@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Peminjaman</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/indexpengajuanStyle.css">
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+    
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="back-btn">
+                <a href="/"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <!-- form handling -->
+            <form action="/">
+                <h1>Index Peminjaman</h1>
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                            <th>Nama</th>
+                            <th>Peminjaman</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </form>
+                    <tbody>
+                        <% data.lab.forEach(data => { %>
+                            <tr>
+                                <td><%= data.nama %> </td>
+                                <td>Peminjaman Lab</td>
+                                <td><%= data.waktu %></td>
+                                <form action="/remove/pengajuan/lab/<%= data.id %>"?_method="DELETE" method="post">
+                                    <td>
+                                        <a href="/detail/pengajuan/lab/<%= data.id %>" class="btn-delete-inventaris">
+                                            <span class="text-gradient"><i class="fas fa-arrow-right"></i></span>
+                                        </a>
+                                        <button type="submit" class="btn-delete-inventaris">
+                                            <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                        <% }) %>
+                        <% data.barang.forEach(data => { %>
+                            <tr>
+                                <td><%= data.nama %> </td>
+                                <td>Peminjaman Barang</td>
+                                <td><%= data.waktuPeminjaman %></td>
+                                <form action="/remove/pengajuan/barang/<%= data.id %>"?_method="DELETE" method="post">
+                                    <td>
+                                        <a href="/detail/pengajuan/barang/<%= data.id %>" class="btn-delete-inventaris">
+                                            <span class="text-gradient"><i class="fas fa-arrow-right"></i></span>
+                                        </a>
+                                        <button type="submit" class="btn-delete-inventaris">
+                                            <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                        </button>    
+                                    </td>
+                                </form>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+
+                </table>
+            
+            <div class="pageWrapper">
+                <ul class="pagination">
+                    <% if (data.previous != null) { %>
+                        <li><a href="/index/pengajuan?page=<%= data.previous.page %>" class="prev">Prev</a></li>
+                    <% } %>
+                    <% if (data.next != null) { %>
+                        <li><a href="/index/pengajuan?page=<%= data.next.page %>" class="next">Next</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+    <!--Header-->
+    <%- include('../header') %> 
+    <!--Header-->
+
+    <script>
+        $(document).ready(function()
+        {
+            $('.next').click(function()
+            {
+                $('.pagination').find('.pageNumber.active').next().addClass('active');
+                $('.pagination').find('.pageNumber.active').prev().removeClass('active');
+            })
+            $('.prev').click(function()
+            {
+                $('.pagination').find('.pageNumber.active').prev().addClass('active');
+                $('.pagination').find('.pageNumber.active').next().removeClass('active');
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,130 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Informasi</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/public/css/editinformasiStyle.css">
-</head>
-<body>
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/public/css/editinformasiStyle.css" />
+  </head>
+  <body>
     <header id="menuBar">
-        <img class="logo" src="/public/img/logo.png" alt="logo">
-        <a href="/" class="appName"><h3>LAB FISIKA</h3><h5>SMA SCIENCE</h5></a>
-            <nav>
-                <ul class="nav_links">
-                    <li><a href="/homepage">Home</a></li>
-                    <li><a href="/indexinventaris">Inventaris</a></li>
-                    <li>
-                        <a href="/historypeminjamanlab">Peminjaman</a>
-                        <ul>
-                            <li><a href="/historypeminjamanbarang">History Peminjaman Barang</a></li>
-                            <li><a href="/historypeminjamanlab">History Peminjaman Lab</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/news">News</a>
-                        <ul>
-                            <li><a href="/inputinformasi">Tambah News</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/login">Login</a>
-                        <ul>
-                            <li><a href="/editacc">Edit Akun</a></li>                            
-                            <li><a href="/indexpengajuan">Inbox</a></li>
-                            <li><a href="/user">All Users</a></li>
-                            <li><a href="/inputuser">Tambah Akun</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+      <img class="logo" src="/public/img/logo.png" alt="logo" />
+      <a href="/" class="appName"
+        ><h3>LAB KIMIA</h3>
+        <h5>SMA SCIENCE</h5></a
+      >
+      <nav>
+        <ul class="nav_links">
+          <li><a href="/homepage">Home</a></li>
+          <li><a href="/indexinventaris">Inventaris</a></li>
+          <li>
+            <a href="/historypeminjamanlab">Peminjaman</a>
+            <ul>
+              <li><a href="/historypeminjamanbarang">Riwayat Peminjaman Barang</a></li>
+              <li><a href="/historypeminjamanlab">Riwayat Peminjaman Lab</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/news">News</a>
+            <ul>
+              <li><a href="/inputinformasi">Tambah Informasi Lab</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/login">Login</a>
+            <ul>
+              <li><a href="/editacc">Edit Akun</a></li>
+              <li><a href="/indexpengajuan">Inbox</a></li>
+              <li><a href="/user">All Users</a></li>
+              <li><a href="/inputuser">Tambah Akun</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
     <!--Header-->
 
-
     <!-- Input Informasi -->
     <div class="input_informasi">
-        <div class="back_btn">
-            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+      <div class="back_btn">
+        <a href="/"><i class="fa fa-arrow-left"></i> </a>
+      </div>
+      <h1>Edit Informasi</h1>
+      <span class="title_span">Gunakan form dibawah ini untuk edit informasi kegiatan</span>
+      <form method="post">
+        <div class="txt_field">
+          <input type="text" name="nama" required />
+          <span></span>
+          <label for="name">Nama Kegiatan</label>
         </div>
-        <h1>Edit Informasi</h1>
-        <span class="title_span">Gunakan form dibawah ini untuk edit informasi kegiatan</span>
-        <form method="post">
-            <div class="txt_field">
-              <input type="text" name="nama" required>
-              <span></span>
-              <label for="name">Nama Kegiatan</label>
-            </div>
-            <div class="date_time">
-                <div class="date_field">
-                    <p id="waktu">Waktu Kegiatan</p>
-                    <input type="date" name="waktu" required>
-                    <span></span>
-                </div>
-                <div class="time_field1">
-                    <input type="time" name="waktu" required>
-                    <span></span>
-                    <p id="koma">,</p>
-                    <p id="sd">s.d</p>
-                </div>
-                <div class="time_field2">
-                    <input type="time" name="waktu" required>
-                    <span></span>
-                </div>
-            </div>
-            
-            <div class="radio_group">
-                <label for="rutinitas"class="radio_name">Rutinitas Kegiatan</label>
-                <div class="radio_field">
-                    <label>
-                        <input type="radio"name="rutinitas" value="Rutin">
-                        <span>Rutin</span>
-                    </label>
-                </div>
-                <div class="radio_field">
-                    <label>
-                        <input type="radio"name="rutinitas" value="Rutin">
-                        <span>Tidak Rutin</span>
-                    </label>
-                </div>
-            </div>
- 
-            <div class="btn">
-                <span></span>
-                <button type="submit" class="btn_success">Save</button>
-            </div>
-            
-          </form>
+        <div class="date_time">
+          <div class="date_field">
+            <p id="waktu">Waktu Kegiatan</p>
+            <input type="date" name="waktu" required />
+            <span></span>
+          </div>
+          <div class="time_field1">
+            <input type="time" name="waktu" required />
+            <span></span>
+            <p id="koma">,</p>
+            <p id="sd">s.d</p>
+          </div>
+          <div class="time_field2">
+            <input type="time" name="waktu" required />
+            <span></span>
+          </div>
+        </div>
+
+        <div class="radio_group">
+          <label for="rutinitas" class="radio_name">Rutinitas Kegiatan</label>
+          <div class="radio_field">
+            <label>
+              <input type="radio" name="rutinitas" value="Rutin" />
+              <span>Rutin</span>
+            </label>
+          </div>
+          <div class="radio_field">
+            <label>
+              <input type="radio" name="rutinitas" value="Rutin" />
+              <span>Tidak Rutin</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="btn">
+          <span></span>
+          <button type="submit" class="btn_success">Save</button>
+        </div>
+      </form>
     </div>
-<!-- Input Inventaris -->
-<script src="/public/dist/sweetalert2.all.min.js"></script>
+    <!-- Input Inventaris -->
+    <script src="/public/dist/sweetalert2.all.min.js"></script>
 
-<script>
-    var option_field_select = document.getElementById("option_field_select");
-    var jumlah = document.getElementById("jumlah");
-    var options = document.getElementsByClassName("options");
-    var list = document.getElementById("list");
-    var arrowIcon = document.getElementById("arrowIcon");
+    <script>
+      var option_field_select = document.getElementById("option_field_select");
+      var jumlah = document.getElementById("jumlah");
+      var options = document.getElementsByClassName("options");
+      var list = document.getElementById("list");
+      var arrowIcon = document.getElementById("arrowIcon");
 
-    option_field_select.onclick = function()
-    {
+      option_field_select.onclick = function () {
         list.classList.toggle("hide");
         arrowIcon.classList.toggle("rotate");
-    }
+      };
 
-    for (option of options)
-    {
-        option.onclick = function()
-        {
-            jumlah.innerHTML = this.textContent;
-            list.classList.toggle("hide");
-            arrowIcon.classList.toggle("rotate");
-        }
-    }
-</script>
-
-</body>
+      for (option of options) {
+        option.onclick = function () {
+          jumlah.innerHTML = this.textContent;
+          list.classList.toggle("hide");
+          arrowIcon.classList.toggle("rotate");
+        };
+      }
+    </script>
+  </body>
 </html>

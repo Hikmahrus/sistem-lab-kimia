@@ -1,111 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Input Informasi</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/editinformasiStyle.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Informasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/editinformasiStyle.css">
+</head>
+<body>
+    
+
+
     <!-- Input Informasi -->
     <div class="input_informasi">
-      <div class="back_btn">
-        <a href="/"><i class="fa fa-arrow-left"></i> </a>
-      </div>
-      <h1>Input Informasi</h1>
-      <span class="title_span">Gunakan form dibawah ini untuk edit informasi kegiatan</span>
-      <form action="/update/informasi/<%= data.id %>" ?_method="PUT" method="post">
-        <div class="txt_field">
-          <input type="text" name="nama" value="<%= data.nama %> " required />
-          <span></span>
-          <label for="name">Nama Kegiatan</label>
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
         </div>
-        <div class="date_time">
-          <div class="date_field">
-            <p id="waktu">Waktu Kegiatan</p>
-            <input type="date" name="waktu" value="<%= time[0] %>" required />
-            <span></span>
-          </div>
-          <div class="time_field1">
-            <input type="time" name="waktu" value="<%= time[2] %>" required />
-            <span></span>
-            <p id="koma">,</p>
-            <p id="sd">s.d</p>
-          </div>
-          <div class="time_field2">
-            <input type="time" name="waktu" value="<%= time[4] %>" required />
-            <span></span>
-          </div>
-        </div>
+        <h1>Edit Informasi</h1>
+        <span class="title_span">Gunakan form dibawah ini untuk edit informasi kegiatan</span>
+        <form action="/update/informasi/<%= data.id %>"?_method="PUT" method="post">
+            <div class="txt_field">
+              <input type="text" name="nama" value="<%= data.nama %> " required>
+              <span></span>
+              <label for="name">Nama Kegiatan</label>
+            </div>
+            <div class="date_time">
+                <div class="date_field">
+                    <p id="waktu">Waktu Kegiatan</p>
+                    <input type="date" name="waktu" value="<%= time[0] %>" required>
+                    <span></span>
+                </div>
+                <div class="time_field1">
+                    <input type="time" name="waktu" value="<%= time[2] %>" required>
+                    <span></span>
+                    <p id="koma">,</p>
+                    <p id="sd">s.d</p>
+                </div>
+                <div class="time_field2">
+                    <input type="time" name="waktu" value="<%= time[4] %>" required>
+                    <span></span>
+                </div>
+            </div>
+            
+            <div class="radio_group">
+                <label for="rutinitas"class="radio_name">Rutinitas Kegiatan</label>
+                <div class="radio_field">
+                    <label>
+                        <% if (data.rutinitas) { %>
+                            <input type="radio" name="rutinitas" value="Rutin" checked="checked">
+                            <span>Rutin</span>
+                        <% } else { %>
+                            <input type="radio" name="rutinitas" value="Rutin">
+                            <span>Rutin</span>
+                        <% } %> 
+                    </label>
+                </div>
+                <div class="radio_field">
+                    <label>
+                        <% if (data.rutinitas) { %>
+                            <input type="radio" name="rutinitas" value="Tidak Rutin">
+                            <span>Tidak Rutin</span>
+                        <% } else { %>
+                            <input type="radio" name="rutinitas" value="Tidak Rutin" checked="checked">
+                            <span>Tidak Rutin</span>
+                        <% } %> 
+                        
+                    </label>
+                </div>
+            </div>
 
-        <div class="radio_group">
-          <label for="rutinitas" class="radio_name">Rutinitas Kegiatan</label>
-          <div class="radio_field">
-            <label>
-              <% if (data.rutinitas) { %>
-              <input type="radio" name="rutinitas" value="Rutin" checked="checked" />
-              <span>Rutin</span>
-              <% } else { %>
-              <input type="radio" name="rutinitas" value="Rutin" />
-              <span>Rutin</span>
-              <% } %>
-            </label>
-          </div>
-          <div class="radio_field">
-            <label>
-              <% if (data.rutinitas) { %>
-              <input type="radio" name="rutinitas" value="Tidak Rutin" />
-              <span>Tidak Rutin</span>
-              <% } else { %>
-              <input type="radio" name="rutinitas" value="Tidak Rutin" checked="checked" />
-              <span>Tidak Rutin</span>
-              <% } %>
-            </label>
-          </div>
-        </div>
+            <div class="txt_field">
+                <input type="text" name="desc" value="<%= data.desc %> " required>
+                <span></span>
+                <label for="name">Deskripsi</label>
+            </div>
 
-        <div class="txt_field">
-          <input type="text" name="desc" value="<%= data.desc %> " required />
-          <span></span>
-          <label for="name">Deskripsi</label>
-        </div>
-
-        <div class="btn">
-          <span></span>
-          <button type="submit" class="btn_success" onclick="">Simpan</button>
-        </div>
-      </form>
+ 
+            <div class="btn">
+                <span></span>
+                <button type="submit" class="btn_success" onclick="">Save</button>
+            </div>
+          </form>
     </div>
-    <!-- Input Inventaris -->
+<!-- Input Inventaris -->
 
     <!--Header-->
-    <%- include('../header') %>
+    <%- include('../header') %> 
     <!--Header-->
-    <script>
-      var option_field_select = document.getElementById("option_field_select");
-      var jumlah = document.getElementById("jumlah");
-      var options = document.getElementsByClassName("options");
-      var list = document.getElementById("list");
-      var arrowIcon = document.getElementById("arrowIcon");
+<script>
+    var option_field_select = document.getElementById("option_field_select");
+    var jumlah = document.getElementById("jumlah");
+    var options = document.getElementsByClassName("options");
+    var list = document.getElementById("list");
+    var arrowIcon = document.getElementById("arrowIcon");
 
-      option_field_select.onclick = function () {
+    option_field_select.onclick = function()
+    {
         list.classList.toggle("hide");
         arrowIcon.classList.toggle("rotate");
-      };
+    }
 
-      for (option of options) {
-        option.onclick = function () {
-          jumlah.innerHTML = this.textContent;
-          list.classList.toggle("hide");
-          arrowIcon.classList.toggle("rotate");
-        };
-      }
-    </script>
-  </body>
+    for (option of options)
+    {
+        option.onclick = function()
+        {
+            jumlah.innerHTML = this.textContent;
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        }
+    }
+</script>
+
+</body>
 </html>

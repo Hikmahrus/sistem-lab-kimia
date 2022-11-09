@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ubah Akun</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Account</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/editaccountStyle.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/editaccountStyle.css">
+</head>
+<body>
+    
     <!-- Input Inventaris -->
     <div class="input_inventaris">
-      <div class="back_btn">
-        <a href="/"><i class="fa fa-arrow-left"></i></a>
-      </div>
-      <h1>Ubah Akun</h1>
-      <span class="title-span">Gunakan form dibawah ini untuk edit akun</span>
-      <form action="/update/user/<%= user.id %> " method="post">
-        <div class="txt_field">
-          <input type="text" name="username" id="username" value="<%= user.username %>" required />
-          <span><i class="fas fa-pencil-alt" aria-hidden="true" id="editname" onclick="toogle1()"></i></span>
-          <label for="name">Nama</label>
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i></a>
         </div>
-        <div class="num_field">
-          <input type="number" name="nis" id="nis" value="<%" ="user.nis" % /> required>
-          <span><i class="fas fa-pencil-alt" aria-hidden="true" id="editnis" onclick="toogle2()"></i></span>
-          <label for="nis">NIS</label>
-        </div>
-        <div class="pass_field">
-          <input type="password" name="password" id="password" />
-          <span><i class="fas fa-pencil-alt" aria-hidden="true" id="editpass" onclick="toogle3()"></i></span>
-          <label for="password">Masukkan Sandi Baru</label>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-success">Simpan</button>
-        </div>
-      </form>
+        <h1>Edit Account</h1>
+        <span class="title-span">Gunakan form dibawah ini untuk edit akun</span>
+        <form action="/update/user/<%= user.id %> " method="post">
+            <div class="txt_field">
+                <input type="text" name="username" id="username" value="<%= user.username %>" required>
+                <span><i class="fas fa-pencil-alt" aria-hidden="true" id="editname" onclick="toogle1()"></i></span>
+                <label for="name">Nama</label>
+            </div>
+            <div class="num_field">
+                <input type="number" name="nis" id="nis" value=<%= user.nis %> required>
+                <span><i class="fas fa-pencil-alt" aria-hidden="true" id="editnis" onclick="toogle2()"></i></span>
+                <label for="nis" >NIS</label>
+            </div>
+            <div class="pass_field">
+                <input type="password" name="password" id="password">
+                <span><i class="fas fa-pencil-alt" aria-hidden="true" id="editpass" onclick="toogle3()"></i></span>
+                <label for="password">New Password</label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+          </form>
     </div>
-    <!-- Input Inventaris -->
+<!-- Input Inventaris -->
 
     <!--Header-->
     <%- include('../header') %>
     <!--Header-->
-  </body>
+
+
+</body>
 </html>

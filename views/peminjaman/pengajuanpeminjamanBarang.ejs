@@ -1,84 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peminjaman Barang</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/css/pengajuanpeminjamanBarangStyle.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/pengajuanpeminjamanBarangStyle.css" />
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-</head>
-<body>
-    
-
+  </head>
+  <body>
     <!-- Input Informasi -->
     <div class="input_informasi">
-        <div class="back_btn">
-            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+      <div class="back_btn">
+        <a href="/"><i class="fa fa-arrow-left"></i> </a>
+      </div>
+      <h1>Peminjaman Barang</h1>
+      <span class="title_span">Gunakan form dibawah ini untuk melakukan peminjaman barang</span>
+      <form action="/pengajuan/peminjaman/barang" method="post">
+        <div class="txt_field">
+          <input type="text" name="namaBarang" required />
+          <span></span>
+          <label for="name">Nama Barang</label>
         </div>
-        <h1>Peminjaman Barang</h1>
-        <span class="title_span">Gunakan form dibawah ini untuk melakukan peminjaman barang</span>
-        <form action="/pengajuan/peminjaman/barang" method="post">
-            <div class="txt_field">
-              <input type="text" name="namaBarang" required>
-              <span></span>
-              <label for="name">Nama Barang</label>
-            </div>
-            <div class="num_field">
-                <input type="number" name="jumlah" required>
-                <span></span>
-                <label for="jumlah">Jumlah</label>
-            </div>
-            
-            <div class="date_time">
-                <div class="date_field">
-                    <p id="waktu">Waktu Peminjaman</p>
-                    <input type="date" name="waktu" id="waktu1" required>
-                    <span></span>
-                    <p id="sd">s.d</p>
-                </div>
-                <div class="date_field_long">
-                    <input type="date" name="lama" id="waktu2" required>
-                    <span></span>
-                </div>
-            </div>
-            <div class="date_time_long">
-                <div class="txt_lama">
-                    <p id="waktu">Lama Peminjaman</p>
-                    <input type="text" name="lamahari" id="lamahari" readonly>
-                    <span></span>
-                    <p id="hari">hari</p>
-                </div>
-            </div>
-            <div class="btn">
-                <span></span>
-                <button type="submit" class="btn_success">Send</button>
-            </div>
-          </form>
+        <div class="num_field">
+          <input type="number" name="jumlah" required />
+          <span></span>
+          <label for="jumlah">Jumlah</label>
+        </div>
+
+        <div class="date_time">
+          <div class="date_field">
+            <p id="waktu">Waktu Peminjaman</p>
+            <input type="date" name="waktu" id="waktu1" required />
+            <span></span>
+            <p id="sd">s.d</p>
+          </div>
+          <div class="date_field_long">
+            <input type="date" name="lama" id="waktu2" required />
+            <span></span>
+          </div>
+        </div>
+        <div class="date_time_long">
+          <div class="txt_lama">
+            <p id="waktu">Lama Peminjaman</p>
+            <input type="text" name="lamahari" id="lamahari" readonly />
+            <span></span>
+            <p id="hari">hari</p>
+          </div>
+        </div>
+        <div class="btn">
+          <span></span>
+          <button type="submit" class="btn_success">Kirim</button>
+        </div>
+      </form>
     </div>
-<!-- Input Inventaris -->
+    <!-- Input Inventaris -->
 
     <!--Header-->
-    <%- include('../header') %> 
+    <%- include('../header') %>
     <!--Header-->
 
-<script type = "text/javascript" >
+    <script type="text/javascript">
+      document.getElementById("waktu2").addEventListener("change", myFunction);
 
-    document.getElementById("waktu2").addEventListener("change", myFunction);
-
-    function myFunction()
-    {
-        var date = new Date($('#waktu1').val());
+      function myFunction() {
+        var date = new Date($("#waktu1").val());
         var day1 = date.getTime();
-        var date = new Date($('#waktu2').val());
+        var date = new Date($("#waktu2").val());
         var day2 = date.getTime();
-        var lama = (day2 - day1)/(1000 * 3600 * 24);
+        var lama = (day2 - day1) / (1000 * 3600 * 24);
 
-        $('#lamahari').attr('value', lama)
-    }
-    
-</script>
-
-</body>
+        $("#lamahari").attr("value", lama);
+      }
+    </script>
+  </body>
 </html>

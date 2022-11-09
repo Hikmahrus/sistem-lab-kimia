@@ -2,65 +2,63 @@
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Login Page</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/css/loginPageStyle.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/loginPageStyle.css" />
   </head>
   <body>
-  <!--Login-->
-  <div class="login">
-    <div class="back_btn">
-      <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+    <!--Login-->
+    <div class="login">
+      <div class="back_btn">
+        <a href="/"><i class="fa fa-arrow-left"></i> </a>
+      </div>
+      <h1>Login</h1>
+      <form action="/login" method="post" id="login">
+        <div class="formMessage formMessage--error"><% if (messages.error) { %> <%= messages.error %> <% } %></div>
+        <div class="txt_field">
+          <input type="text" class="formInput" name="username" required />
+          <span></span>
+          <label>Nama Pengguna</label>
+          <div class="errorMessage"></div>
+        </div>
+        <div class="pass_field">
+          <input type="password" class="formInput" id="password" name="password" required />
+          <span><i class="fas fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i></span>
+          <label>Kata Sandi</label>
+          <div class="errorMessage"></div>
+        </div>
+        <div>
+          <input type="submit" value="Login" />
+        </div>
+      </form>
     </div>
-    <h1>Login</h1>
-    <form action="/login" method="post" id="login">
-      <div class="formMessage formMessage--error">
-        <% if (messages.error) { %>
-          <%= messages.error %> 
-        <% } %> 
-      </div>
-      <div class="txt_field">
-        <input type="text" class="formInput" name="username" required>
-        <span></span>
-        <label>Username</label>
-        <div class="errorMessage"></div>
-      </div>
-      <div class="pass_field">
-        <input type="password" class="formInput" id="password" name="password" required>
-        <span><i class="fas fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i></span>
-        <label>Password</label>
-        <div class="errorMessage"></div>
-      </div>
-      <div>
-      <input type="submit" value="Login">
-      </div>
-    </form>
-  </div>
 
-  <!--Header-->
-  <%- include('../header') %> 
-  <!--Header-->
+    <!--Header-->
+    <%- include('../header') %>
+    <!--Header-->
 
-
-  <script>
-    var state = false;
-    function toogle()
-    {
-        if(state)
-        {
-            document.getElementById("password").setAttribute("type","password");
-            document.getElementById("eye").style.color="#adadad";
-            state = false;
+    <script>
+      var state = false;
+      function toogle() {
+        if (state) {
+          document.getElementById("password").setAttribute("type", "password");
+          document.getElementById("eye").style.color = "#adadad";
+          state = false;
         } else {
-            document.getElementById("password").setAttribute("type","text");
-            document.getElementById("eye").style.color="#2691d9";
-            state = true;
+          document.getElementById("password").setAttribute("type", "text");
+          document.getElementById("eye").style.color = "#2691d9";
+          state = true;
         }
-    }
+      }
 
-    /*
+      /*
     function setFormMessage(formElement, type, message) {
         const messageElement = formElement.querySelector(".formMessage");
 
@@ -86,8 +84,6 @@
 
     });
     */
-</script>
-
-
+    </script>
   </body>
 </html>

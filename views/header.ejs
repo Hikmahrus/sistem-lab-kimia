@@ -1,47 +1,46 @@
 <!--Header-->
-    <header id="menuBar">
-        <img class="logo" src="" alt="">
-        <a href="/" class="appName"><h3>LAB KIMIA</h3></a>
-            <nav id="nav">
-                <ul class="nav_links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/index/inventaris?page=1">Inventaris</a></li>
-                    <li>
-                        <a href="/history/peminjaman/lab?page=1">Peminjaman</a>
-                        <ul>
-                            <li><a href="/history/peminjaman/barang?page=1">History Peminjaman Barang</a></li>
-                            <li><a href="/history/peminjaman/lab?page=1">History Peminjaman Lab</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/index/informasi">Informasi</a>
-                        <ul>
-                            <li><a href="/input/informasi">Tambah Informasi</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <% if (user == undefined) { %>
-                            <a href="/login">Login</a>
-                        <% } else { %>
-                            <a href="">Hi, <%= user.username %></a>
-                        <% } %> 
-                        <% if (user != undefined) { %>
-                            <ul>
-                                <li><a href="/edit/user">Edit Akun</a></li>
-                                <% if (user.role == true) { %>
-                                    <li><a href="/index/pengajuan?page=1">Inbox</a></li>
-                                    <li><a href="/index/user?page=1">All Users</a></li> 
-                                    <li><a href="/input/user">Tambah Akun</a></li>
-                                <% } %>
-                                <li>
-                                    <form form class="logout" action="/logout?_method=DELETE" method="post">
-                                        <button type="submit">Logout</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        <% } %>
-                    </li>
-                </ul>
-            </nav>
-    </header>
-    <!--Header-->
+<header id="menuBar">
+  <img class="logo" src="" alt="" />
+  <a href="/" class="appName"><h3>LAB KIMIA</h3></a>
+  <nav id="nav">
+    <ul class="nav_links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/index/inventaris?page=1">Inventaris</a></li>
+      <li>
+        <a href="/history/peminjaman/lab?page=1">Peminjaman</a>
+        <ul>
+          <li><a href="/history/peminjaman/barang?page=1">Riwayat Peminjaman Barang</a></li>
+          <li><a href="/history/peminjaman/lab?page=1">Riwayat Peminjaman Lab</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/index/informasi">Informasi</a>
+        <ul>
+          <li><a href="/input/informasi">Tambah Informasi</a></li>
+        </ul>
+      </li>
+      <li>
+        <% if (user == undefined) { %>
+        <a href="/login">Login</a>
+        <% } else { %>
+        <a href="">Hi, <%= user.username %></a>
+        <% } %> <% if (user != undefined) { %>
+        <ul>
+          <li><a href="/edit/user">Ubah Akun</a></li>
+          <% if (user.role == true) { %>
+          <li><a href="/index/pengajuan?page=1">Kotak Masuk</a></li>
+          <li><a href="/index/user?page=1">Semua Pengguna</a></li>
+          <li><a href="/input/user">Tambah Akun</a></li>
+          <% } %>
+          <li>
+            <form form class="logout" action="/logout?_method=DELETE" method="post">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+        </ul>
+        <% } %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!--Header-->

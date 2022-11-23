@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
-    <link rel="stylesheet" href="/css/informasiStyle.css">
+    <link rel="stylesheet" href="/public/css/informasiStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 
@@ -33,7 +33,7 @@
                 <div class="blog-text">
                     <span><%= data.waktu %></span>
                     <a href="#" class="blog-title"><%= data.nama %></a>
-                    <p><%= data.desc %></p>
+                    <p><%- data.desc %></p>
                 </div>
             </div>
                

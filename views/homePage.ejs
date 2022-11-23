@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="/css/homepageStyle.css">
+    <link rel="stylesheet" href="/public/css/homepageStyle.css">
+    <!-- import bootstrap -->
+    <!-- <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <source src="/js/bootstrap.min.js"><source> -->
 </head>
 <body>
 
         <!--Header-->
         <%- include("./header") %> 
     <!--Header-->
-
     <!--Main Site-->
     <section id="blog">
         <div class="blog-heading">
@@ -24,13 +26,13 @@
             <% data.forEach(data => { %>
                 <div class="blog-box">
                     <div class="blog-text">
-                        <span><%= data.waktu %></span>
+                        <!-- <span><%= data.waktu %></span> -->
                         <a href="/detail/informasi/<%= data.id %>" class="blog-title"><%= data.nama %></a>
-                        <% if (data.rutinitas) { %>
+                        <!-- <% if (data.rutinitas) { %>
                             <span>Rutin</span>
                         <% } else { %>
                             <span>Tidak Rutin</span>
-                        <% } %> 
+                        <% } %>  -->
                         <p><%= data.desc.length > 200 ? data.desc.substring(0, 200 - 3) + "..." : data.desc %></p>
                         <a href="/detail/informasi/<%= data.id %>">Read More</a>
                     </div>

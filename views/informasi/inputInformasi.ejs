@@ -6,12 +6,11 @@
     <title>Input Informasi</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/css/inputinformasiStyle.css">
+    <link rel="stylesheet" href="/public/css/inputinformasiStyle.css">
+    <script src="/ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
 </head>
 <body>
-    
-
-
     <!-- Input Informasi -->
     <div class="input_informasi">
         <div class="back_btn">
@@ -25,7 +24,7 @@
               <span></span>
               <label for="name">Nama Kegiatan</label>
             </div>
-            <div class="date_time">
+            <!-- <div class="date_time">
                 <div class="date_field">
                     <p id="waktu">Waktu Kegiatan</p>
                     <input type="date" name="waktu" required>
@@ -57,14 +56,14 @@
                         <span>Tidak Rutin</span>
                     </label>
                 </div>
-            </div>
+            </div> -->
             
-            <div class="txt_field">
-                <input type="text" name="desc" required>
-                <span></span>
-                <label for="name">Deskripsi</label>
-            </div>
+            <input type="text" id="editor">
+            <input type="hidden" id="desc" name="desc" required>
 
+            <!-- <div class="txt_field" id="editor">
+                <textarea name="desc" id="editor" cols="57" rows="10"></textarea>
+            </div> -->
             <div class="btn">
                 <span></span>
                 <button type="submit" class="btn_success">Save</button>
@@ -73,9 +72,24 @@
     </div>
 <!-- Input Inventaris -->
 
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( error => {
+                console.error( 'There was a problem initializing the editor.', error );
+            } );
+    </script>
+    <script type="text/javascript">
+        editor.model.document.on( 'change:data', () => {
+                const desc = editor.getData()
+                document.getElementById("desc").value = desc
+            } ); 
+    </script>
     <!--Header-->
     <%- include('../header') %>
     <!--Header-->
-
 </body>
 </html>

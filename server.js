@@ -9,6 +9,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
+const path = require('path')
 
 // ---------------- Controller ----------------
 const Inventaris = require('./controllers/inventarisController')
@@ -45,7 +46,11 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(express.static('public'));
+app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
+app.use('/ckeditor', express.static(path.join(__dirname, 'node_modules/@ckeditor')))
 
 
 app.get('/', User.homePage)

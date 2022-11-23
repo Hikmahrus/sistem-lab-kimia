@@ -5,14 +5,14 @@ const informasiSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    waktu : {
-        type: String,
-        required: true
-    },
-    rutinitas : {
-        type: Boolean,
-        required: true
-    },
+    // waktu : {
+    //     type: String,
+    //     required: true
+    // },
+    // rutinitas : {
+    //     type: Boolean,
+    //     required: true
+    // },
     desc: {
         type: String,
         require: true

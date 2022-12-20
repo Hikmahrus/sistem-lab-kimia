@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit NIS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/public/css/editnisStyle.css">
+</head>
+<body>
+        <!-- Input Inventaris -->
+    <div class="input_inventaris">
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+        </div>
+        <h1>Edit NIS</h1>
+        <span class="title-span">Gunakan form dibawah ini untuk mengganti NIS</span>
+        <form method="post">
+            <div class="num_field">
+                <input type="number" name="nis" required>
+                <span></span>
+                <label for="nis" >New NIS</label>
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+            </div>
+          </form>
+    </div>
+<!-- Input Inventaris -->
+
+    <!--Header-->
+    <%- include('../header') %>
+    <!--Header-->
+
+</body>
+</html>

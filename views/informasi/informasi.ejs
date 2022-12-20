@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="/public/css/informasiStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+</head>
+<body>
+    <!--Main Site-->
+    <section id="blog">
+        <div class="blog-container">
+            <div class="back_btn">
+                <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+            </div>    
+            <div class="button">
+                <% if (user != undefined && user.role) { %>
+                    <form action="/remove/informasi/<%= data.id %> "?_method="DELETE" method="post">
+                        <a href="/edit/informasi/<%= data.id %>" class="btn-edit-inventaris">
+                            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                        </a>
+                        <button type="submit" class="btn-delete-inventaris">
+                            <span class="text-gradient"><i class="fas fa-times"></i></span>
+                        </button>
+                    </form>
+                <% } %>
+            </div>
+            <div class="blog-box">
+                <div class="blog-text">
+                    <span><%= data.waktu %></span>
+                    <a href="#" class="blog-title"><%= data.nama %></a>
+                    <p><%- data.desc %></p>
+                </div>
+            </div>
+               
+    </section>
+    <!--Main Site-->
+
+    <!--Header-->
+    <%- include('../header') %>
+    <!--Header-->
+    
+    
+</body>
+</html>

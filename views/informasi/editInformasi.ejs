@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Informasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/public/css/editinformasiStyle.css">
+    <script src="/ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+</head>
+<body>
+    
+
+
+    <!-- Input Informasi -->
+    <div class="input_informasi">
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+        </div>
+        <h1>Edit Informasi</h1>
+        <span class="title_span">Gunakan form dibawah ini untuk edit informasi kegiatan</span>
+        <form action="/update/informasi/<%= data.id %>"?_method="PUT" method="post">
+            <div class="txt_field">
+              <input type="text" name="nama" value="<%= data.nama %> " required>
+              <span></span>
+              <label for="name">Nama Kegiatan</label>
+            </div>
+            <input type="text" id="editor">
+            <input type="hidden" id="desc" name="desc"  value="<%= data.desc %>" required>
+            <!-- <div class="txt_field">
+                <input type="text" name="desc" value="<%= data.desc %> " required>
+                <span></span>
+                <label for="name">Deskripsi</label>
+            </div> -->
+
+ 
+            <div class="btn">
+                <span></span>
+                <button type="submit" class="btn_success" onclick="">Save</button>
+            </div>
+          </form>
+    </div>
+<!-- Input Inventaris -->
+    <!--Header-->
+    <%- include('../header') %> 
+    <!--Header-->
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( error => {
+                console.error( 'There was a problem initializing the editor.', error );
+            } );
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('readystatechange', event => { 
+            // When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
+            if (event.target.readyState === "complete") {
+                editor.setData(document.getElementById("desc").value)
+            }
+        });
+
+        editor.model.document.on( 'change:data', () => {
+                const desc = editor.getData()
+                document.getElementById("desc").value = desc
+            } ); 
+    </script>
+<script>
+    var option_field_select = document.getElementById("option_field_select");
+    var jumlah = document.getElementById("jumlah");
+    var options = document.getElementsByClassName("options");
+    var list = document.getElementById("list");
+    var arrowIcon = document.getElementById("arrowIcon");
+
+    option_field_select.onclick = function()
+    {
+        list.classList.toggle("hide");
+        arrowIcon.classList.toggle("rotate");
+    }
+
+    for (option of options)
+    {
+        option.onclick = function()
+        {
+            jumlah.innerHTML = this.textContent;
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        }
+    }
+</script>
+
+</body>
+</html>

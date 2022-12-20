@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengajuan Peminjaman Lab</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/public/css/pesanpegajuanpeminjamanLabStyle.css">
+</head>
+<body>
+    
+    <!-- Input Informasi -->
+    <div class="input_informasi">
+        <div class="back_btn">
+            <a href="/"><i class="fa fa-arrow-left"></i>  </a>
+        </div>
+        <div class="wrapper">
+            <h1>Pengajuan Peminjaman Lab</h1>
+                <form action="" method="post">
+                    <div class="txt_field">
+                        <input type="text" name="nama" value="<%= data.nama %>"required>
+                        <span></span>
+                        <label for="name">Nama</label>
+                        </div>
+                        <div class="num_field">
+                            <input type="number" name="nis" value=<%= data.nis %> required>
+                            <span></span>
+                            <label for="nis" >NIS</label>
+                        </div>  
+                        <div class="date_time">
+                            <div class="date_field">
+                                <p id="waktu">Waktu Peminjaman</p>
+                                <input type="date" name="waktu" value="<%= time[0] %>" required>
+                                <span></span>
+                            </div>
+                            <div class="time_field1">
+                                <input type="time" name="waktu" value="<%= time[2] %>" required>
+                                <span></span>
+                                <p id="koma">,</p>
+                                <p id="sd">s.d</p>
+                            </div>
+                            <div class="time_field2">
+                                <input type="time" name="waktu" value="<%= time[4] %>" required>
+                                <span></span>
+                            </div>
+                        </div>
+                </form>
+                <div class="btn">
+                    <span></span>
+                    <form action="/pengajuan/lab/accept/<%= data.id %>"?_method="PUT" method="post">
+                        <button type="submit" class="accept">Terima</button>
+                    </form>
+                    <form action="/pengajuan/lab/decline/<%= data.id %>"?_method="PUT" method="post">
+                        <button type="submit" class="decline">Tolak</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+<!-- Input Inventaris -->
+
+    <!--Header-->
+    <%- include('../header') %>
+    <!--Header-->
+
+</body>
+</html>

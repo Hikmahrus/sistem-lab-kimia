@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/public/css/homepageStyle.css">
+</head>
+<body>
+
+    <!--Header-->
+    <%- include("./header") %> 
+    <!--Header-->
+    <!--Main Site-->
+    <!-- <div class="container-fluid">
+        <br>
+        <% data.forEach(data => { %>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><%= data.nama %></h4>
+                    <a href="/detail/informasi/<%= data.id %>" class="card-title"></a>
+                    <p class="card-text"><%- data.desc.length > 150 ? data.desc.substring(0, 200 - 3) + "..." : data.desc %></p>
+                    <a href="/detail/informasi/<%= data.id %>">Read More</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+    </div> -->
+    <section id="blog">
+        <div class="blog-heading">
+            <h3>News</h3>
+        </div>
+
+        <div class="blog-container">
+
+            <% data.forEach(data => { %>
+                <div class="blog-box">
+                    <div class="blog-text">
+                        <!-- <span><%= data.waktu %></span> -->
+                        <a href="/detail/informasi/<%= data.id %>" class="blog-title"><%= data.nama %></a>
+                        <!-- <% if (data.rutinitas) { %>
+                            <span>Rutin</span>
+                        <% } else { %>
+                            <span>Tidak Rutin</span>
+                        <% } %>  -->
+                        <!-- <p><%= data.desc.length > 200 ? data.desc.substring(0, 200 - 3) + "..." : data.desc %></p> -->
+                        <p><%- data.desc.length > 150 ? data.desc.substring(0, 200 - 3) + "..." : data.desc %></p>
+                        <a href="/detail/informasi/<%= data.id %>">Read More</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section> -->
+    <!--Main Site-->
+
+</body>
+</html>

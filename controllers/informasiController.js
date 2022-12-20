@@ -41,12 +41,7 @@ const detailInformasi = async (req, res) => {
 const editInformasi = async (req, res) => {
     const user = await req.user
     const data = await Informasi.findById(req.params.id)
-<<<<<<< HEAD
     res.render('../views/informasi/editInformasi', {data: data, user: user})
-=======
-    const time = data.waktu.split(' ')
-    res.render('../views/informasi/editInformasi', {data: data, time: time, user: user})
->>>>>>> 80ca0ec88d20166ba648dcc6d0988e8c7a46777d
 }
 
 const updateInformasi = async (req, res) => {

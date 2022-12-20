@@ -118,14 +118,9 @@ const loginView = (req, res) => {
 
 const logout = (req, res) => {
     console.log('logout')
-<<<<<<< HEAD
     req.logout(function(err) {
         res.redirect('/')
     })
-=======
-    req.logOut()
-    res.redirect('/')
->>>>>>> 80ca0ec88d20166ba648dcc6d0988e8c7a46777d
 }
 
 function checkLogin(req, res, next) {

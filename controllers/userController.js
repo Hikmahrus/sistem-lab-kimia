@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const initializePassport = require('../passport-config')
 
-// ---------------- Initialize Passport ----------------
 initializePassport(
     passport,
     username => User.findOne({ username: username }),
@@ -20,10 +19,9 @@ const homePage = async (req, res) => {
 
 const indexUser = async (req, res) => {
     const user = await req.user
-    // const data = await User.find()
 
     const page = parseInt(req.query.page)
-    const limit = 10 //default 10 ?
+    const limit = 10 
 
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
@@ -90,22 +88,6 @@ const updateUser = async (req, res) => {
         console.log(error)
     }
 }
-
-// const newPassword = async (req, res) => {
-//     const user = await req.user
-//     res.render('../views/user/editPassword', {user: user})
-// }
-
-// const updatePassword = async (req, res) => {
-//     const data = await User.findById(req.params.id)
-//     data.password = await bcrypt.hash(req.body.new_password, 10)
-//     try {
-//         await data.save()
-//         res.redirect('/')
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
 
 const removeUser = async (req, res) => {
     await User.findByIdAndDelete(req.params.id)

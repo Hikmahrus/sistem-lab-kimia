@@ -2,10 +2,9 @@ const Inventaris = require('../models/inventaris')
 
 const getInvetaris = async (req, res) => {
     const user = await req.user
-    // const data = await Inventaris.find()
 
     const page = parseInt(req.query.page)
-    const limit = 10 //default 10 ?
+    const limit = 10 
 
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
@@ -35,7 +34,7 @@ const getInvetaris = async (req, res) => {
 }
 
 const inputInventaris = async (req, res) => {
-    const user = await req.user //error karena req.user sudah dipanggil di check admin
+    const user = await req.user 
     res.render('../views/inventaris/inputInventaris', {user: user})
 }
 

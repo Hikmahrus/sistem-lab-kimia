@@ -20,8 +20,6 @@ const insertInformasi = async (req, res) => {
     const waktu = req.body.waktu
     const data = new Informasi({
         nama: req.body.nama,
-        // waktu: waktu[0] + " , " + waktu[1] + " s.d " + waktu[2],
-        // rutinitas: (req.body.rutinitas == "Rutin")? true : false,
         desc: req.body.desc,
     })
     try {
@@ -49,8 +47,6 @@ const updateInformasi = async (req, res) => {
     const waktu = req.body.waktu
     const data = await Informasi.findById(req.params.id)
     data.nama = req.body.nama
-    // data.waktu = waktu[0] + " , " + waktu[1] + " s.d " + waktu[2]
-    // data.rutinitas = (req.body.rutinitas == "Rutin")? true : false
     data.desc = req.body.desc
     try {
         await data.save()

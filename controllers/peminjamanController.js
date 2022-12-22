@@ -2,16 +2,8 @@ const Lab = require('../models/Lab')
 const Barang = require('../models/Barang')
 const User = require('../models/user')
 
-// --------------------- Admin ---------------------
 const indexPengajuan = async (req, res) => {
     const user = await req.user
-    // const lab = await Lab.find({ status: 'Not yet verify' }).sort({createAt: "desc"})
-    // const barang = await Barang.find({ status: 'Not yet verify' }).sort({createAt: "desc"})
-    /* 
-        step :
-        1. gabungkan lab dan barang menjadi satu objek
-        2. beri pagination ke objek gabungan
-    */
     const page = parseInt(req.query.page)
     const limit = 5 //default 5 lab + 5 barang ?
 
@@ -46,7 +38,6 @@ const indexPengajuan = async (req, res) => {
         console.log(error)
     }
 
-    // console.log(result.result)
     res.render('../views/peminjaman/indexPengajuan', {user: user, data: result})
 }
 
@@ -107,25 +98,10 @@ const detailsPengajuanLab = async (req, res) => {
     const time = data.waktu.split(' ')
     res.render('../views/peminjaman/pesanpengajuanpeminjamanLab', {data: data, time: time, user: user})
 }
-
-// const completePeminjaman = async (req, res) => {
-//     const data = await Peminjaman.findById(req.params.id)
-//     data.status = 'Finish'
-//     try {
-//         await data.save()
-//         res.redirect('/history/peminjaman')
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
 const historyPeminjamanLab = async (req, res) => {
     const user = await req.user
-    // const data = await Lab.find({ status: {$ne: 'Not yet verify'}}) //status bukan "Not yet verivy"
-    // const data = await Lab.find({ status: "Accepted"})
-
     const page = parseInt(req.query.page)
-    const limit = 10 //default 10 ?
+    const limit = 10
 
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
@@ -155,10 +131,8 @@ const historyPeminjamanLab = async (req, res) => {
 
 const historyPeminjamanBarang = async (req, res) => {
     const user = await req.user
-    // const data = await Barang.find({ status: "Accepted"})
-
     const page = parseInt(req.query.page)
-    const limit = 10 //default 10 ?
+    const limit = 10 
 
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
@@ -205,8 +179,6 @@ const removePengajuanLab= async (req, res) => {
     await Lab.findByIdAndDelete(req.params.id)
     res.redirect('/index/pengajuan?page=1')
 }
-// --------------------- User ---------------------
-
 const pengajuanPeminjamanBarang = async (req, res) => {
     const user = await req.user
     res.render('../views/peminjaman/pengajuanPeminjamanBarang', { user: user})
@@ -250,17 +222,6 @@ const insertPengajuanBarang = async (req, res) => {
         console.log(error)
     }
 }
-
-// const pengajuanUser = async (req, res) => {
-//     const user = await req.user
-//     const data = await Lab.find({ nis: user.nis})
-//     res.render('../views/user/pengajuan', {data: data})
-// }
-
-// const indexUmum = async (req, res) => {
-//     const data = await Lab.find({ status: "Accepted" })
-//     res.render('../views/peminjaman/indexUmum', { data: data })
-// }
 
 module.exports = {
     indexPengajuan,
